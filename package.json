@@ -1,0 +1,22 @@
+{
+  "name": "wordcloud-bot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon"
+  },
+  "keywords": [],
+  "author": "Mario Tacke <tacke.mario@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.4",
+    "dotenv": "^8.0.0",
+    "express": "^4.16.4",
+    "redis": "^2.8.0",
+    "tmi.js": "^1.4.2"
+  }
+}

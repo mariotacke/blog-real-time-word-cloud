@@ -1,0 +1,7 @@
+{
+  "nodeArgs": [
+    "--require",
+    "dotenv/config",
+    "index.js"
+  ]
+}
