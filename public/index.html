@@ -11,7 +11,7 @@
 <body>
   <script>
     async function getCloud () {
-      const response = await fetch('/api/channel/havoc616/words');
+      const response = await fetch('/api/channel/$CHANNEL_NAME/words');
       const json = await response.json();
 
       const cloud = json.scores.map(function ({ key, value }) {

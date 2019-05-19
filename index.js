@@ -3,8 +3,11 @@ const redis = require('redis');
 const bluebird = require('bluebird');
 const express = require('express');
 const path = require('path');
+const fs = require('fs');
 
 bluebird.promisifyAll(redis);
+
+const indexHtml = fs.readFileSync(path.join(__dirname, 'public', 'index.html'), 'utf8');
 
 const options = {
   identity: {
@@ -27,7 +30,10 @@ tmiClient.connect();
 const app = express();
 
 app.get('/', function (req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+  const html = indexHtml.replace(/\$CHANNEL_NAME/, process.env.CHANNEL_NAME);
+
+  res.set('Content-Type', 'text/html');
+  res.send(new Buffer.from(html));
 });
 
 app.get('/api/channel/:channel/words', async function (req, res) {
