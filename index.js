@@ -29,6 +29,8 @@ tmiClient.connect();
 
 const app = express();
 
+app.disable('etag');
+
 app.get('/', function (req, res) {
   const html = indexHtml.replace(/\$CHANNEL_NAME/, process.env.CHANNEL_NAME);
 
